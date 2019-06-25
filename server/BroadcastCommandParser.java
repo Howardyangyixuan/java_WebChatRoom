@@ -1,4 +1,4 @@
-package com.cncd.ch04.server;
+package server;
 import java.util.*;
 public class BroadcastCommandParser implements CommandParser {
     private final String NICK = "nick";

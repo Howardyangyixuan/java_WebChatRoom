@@ -1,4 +1,4 @@
-package com.cncd.ch04.server;
+package server;
 import java.net.*;
 import java.io.*;
 public class MainServer extends Thread {

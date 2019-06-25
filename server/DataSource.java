@@ -1,4 +1,4 @@
-package com.cncd.ch04.server;
+package server;
 public interface DataSource {
     public boolean verifyUser(String user, String pass);
     public boolean addUser(String user, String pass);

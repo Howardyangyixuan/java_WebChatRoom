@@ -1,4 +1,4 @@
-package com.cncd.ch04.client;
+package client;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

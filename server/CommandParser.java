@@ -1,4 +1,4 @@
-package com.cncd.ch04.server;
+package server;
 public interface CommandParser {
     
     public void setDataSource(DataSource ds);
