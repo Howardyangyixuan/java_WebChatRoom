@@ -3,60 +3,105 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+/**javax是java extension
+ * awt & swing 都是GUI组件*/
 public class ChatClient extends JFrame implements KeyListener, ActionListener, FocusListener {
+
+    /**客户端的默认数值，包括：
+     *1.客户端标题
+     *2.主机地址
+     *3.远程端口
+     *4.昵称*/
     public static final String appName = "Chat Tool";
     public static final String serverText = "127.0.0.1";
     public static final String portText = "3500";
     public static final String nickText = "YourName";
+
+    /**上中下面板*/
     JPanel northPanel, southPanel, centerPanel;
+
+    /**记录初始化文本信息的文本框*/
     JTextField txtHost, txtPort, msgWindow, txtNick;
-    JButton buttonConnect, buttonSend;
+
+    /**按键*/
+    JButton buttonConnect, buttonSend, buttonClear;
+
+    /**滑动面板*/
     JScrollPane sc;
+
+    /**客户端处理程序*/
     ClientKernel ck;
+
+    /**消息记录，嵌入在中央面板中*/
     ClientHistory historyWindow;
     private String lastMsg = "";
+
     /** Creates a new instance of Class */
     public ChatClient() {
         uiInit();
         txtHost.setText("127.0.0.1");
         txtPort.setText("3500");
     }
+
+    //UI界面初始化
     public void uiInit() {
+        //为Frame窗口设置布局为BorderLayout，无需考虑布局
         setLayout(new BorderLayout());
-        //����North
-        northPanel = new JPanel(new GridLayout(0,2));
+
+        //North面板，GridLayout初始化布局
+        northPanel = new JPanel(new GridLayout(4,2));
+
+        //JLabel(String text)：创建具有指定文本的 JLabel
         northPanel.add(new JLabel("Host address:"));
+
+        //JTextField(String text)：创建一个指定初始化文本信息的文本框
         northPanel.add(txtHost = new JTextField(ChatClient.serverText));
         northPanel.add(new JLabel("Port:"));
         northPanel.add(txtPort = new JTextField(ChatClient.portText));
         northPanel.add(new JLabel("Nick:"));
         northPanel.add(txtNick = new JTextField(ChatClient.nickText));
         northPanel.add(new JLabel(""));
-        northPanel.add(new JLabel(""));
-        northPanel.add(new JLabel(""));
+        //northPanel.add(new JLabel(""));
+        //northPanel.add(new JLabel(""));
+
+        //JButton(String text)：创建一个有标签文本、无图标的按钮
         northPanel.add(buttonConnect = new JButton("Connect"));
+
+        //按键反馈
         buttonConnect.addActionListener(this);
+
+        //键入反馈
         txtHost.addKeyListener(this);
-        txtHost.addFocusListener(this);
-        txtNick.addFocusListener(this);
         txtNick.addKeyListener(this);
         txtPort.addKeyListener(this);
-        txtPort.addFocusListener(this);
         buttonConnect.addKeyListener(this);
+
+        //聚焦反馈
+        txtHost.addFocusListener(this);
+        txtNick.addFocusListener(this);
+        txtPort.addFocusListener(this);
+
+        //将North加入Frame
         this.add(northPanel, BorderLayout.NORTH);
-        //����Sourth
+
+        //South面板，BorderLayout初始化布局
         southPanel = new JPanel();
         southPanel.add(msgWindow = new JTextField(20));
         southPanel.add(buttonSend = new JButton("Send"));
+        southPanel.add(buttonClear = new JButton("Clear"));
         buttonSend.addActionListener(this);
+        buttonClear.addActionListener(this);
         msgWindow.addKeyListener(this);
         add(southPanel, BorderLayout.SOUTH);
-        //����Center
+
+        //Center面板，BorderLayout初始化布局
         historyWindow = new ClientHistory();
         sc = new JScrollPane(historyWindow);
         sc.setAutoscrolls(true);
         this.add(sc, BorderLayout.CENTER);
     }
+
+    //主函数，使用父类Frame的方法初始化
    public static void main(String args[]) {
         ChatClient client = new ChatClient();
         client.setTitle(client.appName);
@@ -66,56 +111,101 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         client.setVisible(true);
         client.msgWindow.requestFocus();
     }
+
+    /**通过显示窗口显示消息*/
     public void addMsg(String str) {
         historyWindow.addText(str);
     }
+
+    /**发起连接*/
     private void connect() {
         try {
+            //如果该客服端已经连接，则释放当前CLientKernel，并抛出异常
             if(ck!=null) ck.dropMe();
+            //创建新的CLientKernel，并初始化
             ck = new ClientKernel(txtHost.getText(), Integer.parseInt(txtPort.getText()));
             ck.setNick(txtNick.getText());
+            //初始化连接
             if(ck.isConnected()) {
                 ck.addClient(this);
                 addMsg("<font color=\"#00ff00\">connected! Local Port:" + ck.getLocalPort() + "</font>");
             } else {
-                addMsg("<font color=\"#ff0000\">connect failed��</font>");
+                addMsg("<font color=\"#ff0000\">connect failed!</font>");
             }
         } catch(Exception e) { e.printStackTrace(); }
     }
+
+    /**发送消息，清空消息框*/
     private void send() {
         String toSend = msgWindow.getText();
         ck.sendMessage(toSend);
         lastMsg = "" + toSend;
         msgWindow.setText("");
     }
+
+    /**键盘摁下触发*/
     public void keyPressed(KeyEvent e) {
     }
+
+    /**键盘松开触发*/
     public void keyReleased(KeyEvent e) {
-        if(e.getSource() == msgWindow && e.getKeyCode() == KeyEvent.VK_UP) msgWindow.setText(lastMsg);
-    }
-    public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() ==KeyEvent.VK_ENTER) {
-            if(e.getSource() == msgWindow) send();
-            if(e.getSource() == txtNick) { connect(); msgWindow.requestFocus(); }
-            if(e.getSource() == txtHost) txtPort.requestFocus();
-            if(e.getSource() == txtPort) txtNick.requestFocus();
+        if(e.getSource() == msgWindow && e.getKeyCode() == KeyEvent.VK_UP) {
+            msgWindow.setText(lastMsg);
         }
     }
+
+    /**键盘键入触发*/
+    public void keyTyped(KeyEvent e) {
+        if(e.getKeyChar() ==KeyEvent.VK_ENTER) {
+            if(e.getSource() == msgWindow) {
+                send();
+            }
+            if(e.getSource() == txtNick) {
+                connect(); msgWindow.requestFocus();
+            }
+            if(e.getSource() == txtHost) {
+                txtPort.requestFocus();
+            }
+            if(e.getSource() == txtPort) {
+                txtNick.requestFocus();
+            }
+        }
+    }
+
+    /**鼠标动作触发*/
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==buttonConnect) connect();
-        if(e.getSource()==buttonSend) send();
+        if(e.getSource()==buttonConnect) {
+            connect();
+        }
+        if(e.getSource()==buttonSend) {
+            send();
+        }
+        if(e.getSource()==buttonClear) {
+            historyWindow.clear();
+        }
     }
+
+    /**光标聚焦触发*/
     public void focusGained(FocusEvent e) {
-        if(e.getSource()==txtHost && txtHost.getText().equals(ChatClient.serverText)) txtHost.setText("");
-        if(e.getSource()==txtPort && txtPort.getText().equals(ChatClient.portText)) txtPort.setText("");
-        if(e.getSource()==txtNick && txtNick.getText().equals(ChatClient.nickText)) txtNick.setText("");
+//        if(e.getSource()==txtHost && txtHost.getText().equals(ChatClient.serverText)) txtHost.setText("");
+//        if(e.getSource()==txtPort && txtPort.getText().equals(ChatClient.portText)) txtPort.setText("");
+//        if(e.getSource()==txtNick && txtNick.getText().equals(ChatClient.nickText)) txtNick.setText("");
     }
+
+    /**光标失去聚焦触发*/
     public void focusLost(FocusEvent e) {
-       if(e.getSource()==txtPort && txtPort.getText().equals("")) txtPort.setText(ChatClient.portText);
-       if(e.getSource()==txtHost && txtHost.getText().equals("")) txtHost.setText(ChatClient.serverText);
-       if(e.getSource()==txtNick && txtNick.getText().equals(ChatClient.nickText)) 
-                                                            txtNick.setText(ChatClient.nickText);
+       if(e.getSource()==txtPort && txtPort.getText().equals("")) {
+           txtPort.setText(ChatClient.portText);
+       }
+       if(e.getSource()==txtHost && txtHost.getText().equals("")){
+           txtHost.setText(ChatClient.serverText);
+       }
+       if(e.getSource()==txtNick && txtNick.getText().equals("")) {
+           txtNick.setText(ChatClient.nickText);
+       }
     }
+
+    /**历史消息面板*/
     class ClientHistory extends JEditorPane {
         public ClientHistory() {
             super("text/html", "" + ChatClient.appName);

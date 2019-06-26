@@ -78,7 +78,7 @@ public class ClientKernel {
         while(cml.hasStoped() && cms.hasStoped()) pause(5);
     }
 
-    /** 未drop正常发送消息，'/'开头为指令执行其他操作，开头其他为常规消息 */
+    /** 未dropMe时，正常发送消息，'/'开头为指令执行其他操作，开头其他为常规消息 */
     public void sendMessage(String str) {
         if(!dropMe) {
             if(str.charAt(0) == '/')
@@ -104,8 +104,9 @@ public class ClientKernel {
         } catch(Exception e) {}
     }
 
-    /** 共享资源，存储信息
-     *  将消息加入每个客户端 */
+    /** 共享资源，轮流打印
+     *  将消息打印到每个已连接的客户端
+     *  ！！！注意这里是用的是每个client的方法，在ChatClient中，south栏中的historywindow！！！*/
     public synchronized void storeMsg(String str) {
         Object[] client = clients.toArray();
         for(int i=0;i<client.length;i++)
@@ -146,7 +147,8 @@ class ClientMsgSender extends Thread {
         start();
     }
 
-    /**单线程运行，加入消息*/
+    /**共享资源，轮流加入
+     * 单线程运行，加入消息*/
     public synchronized void addMessage(String msg) {
         msgList.addLast(msg);
     }
