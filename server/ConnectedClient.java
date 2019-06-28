@@ -2,6 +2,12 @@ package server;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+/**已连接客户端，包含
+ * 1.昵称
+ * 2.连接信息
+ * 3.ip
+ * 4.端口
+ * 5.*/
 public class ConnectedClient {
     private ConnectionKeeper ck;
     public String nick;
@@ -15,6 +21,8 @@ public class ConnectedClient {
     private ServerMsgListener msgList;
     private Socket sock;
     public boolean printMsg = false;
+
+    /***/
     public ConnectedClient(Socket sock, ConnectionKeeper ck) {
         this.ck = ck;
         ipNumber = sock.getInetAddress().getHostAddress();
@@ -24,6 +32,7 @@ public class ConnectedClient {
         msgList = new ServerMsgListener(this.sock, this);
         nick = "" + portNumber;
     }
+    /***/
     public ConnectionKeeper getConnectionKeeper() {
             return ck;
     }
@@ -37,19 +46,25 @@ public class ConnectedClient {
         ck.sendTo(this, user, msg);
     }
     public void broadcastMessage(String str) {
-        if(!isSpam(str)) ck.broadcast(str);
+        if(!isSpam(str)) {
+            ck.broadcast(str);
+        }
     }
     public void dropClient() {
         msgList.closeConnection();
         msgSend.closeConnection();
         ck.remove(this);
     }
+
+    /***/
     public void runCommand(String str) {
+        //command信息从客户端发出，头部为OxFD
         if(str.charAt(0)==0xFD) {
             String str1 = str.substring(1);
             ck.runCommand(this, str1);
         }
     }
+    /**判断是否为垃圾信息，直接返回否*/
     private boolean isSpam(String str) {
         return false;
     }
@@ -78,8 +93,10 @@ class ServerMsgSender extends Thread {
         if(cc.printMsg) System.out.println("MsgSender.addMessage: " +str);
         msgList.addLast(str);
     }
+
     private void collectInfo() {
     }
+
     public void run() {
         try {
             DataOutputStream dataOut = new DataOutputStream(sock.getOutputStream());
@@ -87,7 +104,9 @@ class ServerMsgSender extends Thread {
                 while(msgList.size()>0) {
                     String toSend = (String)(msgList.removeFirst());
                     dataOut.writeBytes("" + toSend + MainServer.MSGENDCHAR);
-                    if(cc.printMsg) System.out.println("MsgSender.run: Sending: " + toSend);
+                    if(cc.printMsg) {
+                        System.out.println("MsgSender.run: Sending: " + toSend);
+                    }
                     sleep(10);
                 }
                 sleep(10);
@@ -150,9 +169,14 @@ class ServerMsgListener extends Thread {
                 }
                 if(didRun) {
                     String toSend = "" + cc.nick + ":" + strBuff.toString();
-                    if(cc.printMsg) System.out.println("MsgListenet.run Sending msg: " + toSend);
-                    if(!isCommand) cc.broadcastMessage(toSend);
-                    else cc.runCommand(strBuff.toString());
+                    if(cc.printMsg) {
+                        System.out.println("MsgListenet.run Sending msg: " + toSend);
+                    }
+                    if(!isCommand) {
+                        cc.broadcastMessage(toSend);
+                    } else {
+                        cc.runCommand(strBuff.toString());
+                    }
                 }
             }
         } catch(SocketException se) {

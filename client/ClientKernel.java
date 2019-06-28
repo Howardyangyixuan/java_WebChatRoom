@@ -9,6 +9,7 @@ public class ClientKernel {
     public static final char EXIT = 0xFE;
     public static final char NICK = 0xFD;
     public static final char COMMAND = 0xFD;
+    public static final char USER = '`';
 
     /**昵称：格式为 输入的昵称+端口号*/
     public String nick;
@@ -48,6 +49,7 @@ public class ClientKernel {
         try {
             sock = new Socket(serverAd, port);
             isConnected = true;
+            //UpdateUsers();
         } catch(IOException ioe ) {
             ioe.printStackTrace();
         }
@@ -90,6 +92,7 @@ public class ClientKernel {
     /** 将客户加入客户列表 */
     public void addClient(ChatClient c) {
         clients.add(c);
+        //UpdateUsers();
     }
 
     /** 将客户移出客户列表 */
@@ -106,11 +109,33 @@ public class ClientKernel {
 
     /** 共享资源，轮流打印
      *  将消息打印到每个已连接的客户端
-     *  ！！！注意这里是用的是每个client的方法，在ChatClient中，south栏中的historywindow！！！*/
+     *  ！！！注意这里是用的是每个client的方法，在ChatClient中，center栏中的historywindow！！！*/
     public synchronized void storeMsg(String str) {
         Object[] client = clients.toArray();
-        for(int i=0;i<client.length;i++)
-            ((ChatClient)(client[i])).addMsg(str);
+        for(int i=0;i<client.length;i++) {
+            ((ChatClient) (client[i])).addMsg(str);
+            System.out.println("has here");
+            if(str.equals("Server: You are being disconected!")) {
+                ((ChatClient) (client[i])).ck = null;
+                System.out.println("has null");
+            }
+        }
+    }
+
+    /**打印用户*/
+    public synchronized void storeUsers(String str) {
+        Object[] client = clients.toArray();
+        for(int i=0;i<client.length;i++) {
+            ((ChatClient) (client[i])).addUsers(str);
+        }
+    }
+
+    /**打印用户*/
+    public synchronized void UpdateUsers() {
+        Object[] client = clients.toArray();
+        for(int i=0;i<client.length;i++) {
+            ((ChatClient) (client[i])).askUsers();
+        }
     }
 
     /** 判断是否连接 */
@@ -189,6 +214,7 @@ class ClientMsgSender extends Thread {
             ioe.printStackTrace();
         } finally {
             hasStoped = true;
+            System.out.println("msgsender stop");
         }
     }
 }
@@ -240,7 +266,11 @@ class ClientMsgListener extends Thread{
                     while( (c=dataIn.read()) != ClientKernel.MSGENDCHAR) {
                         strBuff.append((char)c);
                     }
-                    ck.storeMsg("" + strBuff.toString());
+                    if(/*strBuff.length()>0 &&*/ strBuff.charAt(0)==ClientKernel.USER) {
+                        ck.storeUsers("" + strBuff.toString());
+                    }else {
+                        ck.storeMsg("" + strBuff.toString());
+                    }
                 }
                 dataIn.close();
                 buffIn.close();
@@ -249,6 +279,7 @@ class ClientMsgListener extends Thread{
             ioe.printStackTrace();
         } finally {
             hasStoped = true;
+            System.out.println("msgreceiver stop");
         }
     }
 }

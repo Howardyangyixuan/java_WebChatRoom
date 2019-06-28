@@ -23,11 +23,14 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
     /**记录初始化文本信息的文本框*/
     JTextField txtHost, txtPort, msgWindow, txtNick;
 
+    /**记录用户信息*/
+    JTextArea users;
+
     /**按键*/
-    JButton buttonConnect, buttonSend, buttonClear;
+    JButton buttonConnect, buttonSend, buttonClear, buttonExit, buttonUpdateUsers;
 
     /**滑动面板*/
-    JScrollPane sc;
+    JScrollPane sc, usc;
 
     /**客户端处理程序*/
     ClientKernel ck;
@@ -49,7 +52,7 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         setLayout(new BorderLayout());
 
         //North面板，GridLayout初始化布局
-        northPanel = new JPanel(new GridLayout(4,2));
+        northPanel = new JPanel(new GridLayout(5,2));
 
         //JLabel(String text)：创建具有指定文本的 JLabel
         northPanel.add(new JLabel("Host address:"));
@@ -60,15 +63,19 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         northPanel.add(txtPort = new JTextField(ChatClient.portText));
         northPanel.add(new JLabel("Nick:"));
         northPanel.add(txtNick = new JTextField(ChatClient.nickText));
-        northPanel.add(new JLabel(""));
+        //northPanel.add(new JLabel(""));
         //northPanel.add(new JLabel(""));
         //northPanel.add(new JLabel(""));
 
         //JButton(String text)：创建一个有标签文本、无图标的按钮
-        northPanel.add(buttonConnect = new JButton("Connect"));
+        northPanel.add(buttonConnect = new JButton("Log in"));
+        northPanel.add(buttonExit = new JButton("Log out"));
+        northPanel.add(buttonUpdateUsers = new JButton("Update users"));
 
         //按键反馈
         buttonConnect.addActionListener(this);
+        buttonUpdateUsers.addActionListener(this);
+        buttonExit.addActionListener(this);
 
         //键入反馈
         txtHost.addKeyListener(this);
@@ -95,10 +102,17 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         add(southPanel, BorderLayout.SOUTH);
 
         //Center面板，BorderLayout初始化布局
+        centerPanel = new JPanel(new GridLayout(1,2));
+        //centerPanel = new JPanel();
         historyWindow = new ClientHistory();
         sc = new JScrollPane(historyWindow);
         sc.setAutoscrolls(true);
-        this.add(sc, BorderLayout.CENTER);
+        centerPanel.add(sc);
+        //centerPanel.add(users = new JTextField("users:"));
+        users = new JTextArea("Users:\n");
+        users.setEditable(false);
+        centerPanel.add(usc = new JScrollPane(users));
+        this.add(centerPanel, BorderLayout.CENTER);
     }
 
     //主函数，使用父类Frame的方法初始化
@@ -117,20 +131,33 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         historyWindow.addText(str);
     }
 
+    public void askUsers() { ck.sendMessage("/getUsers");}
+
+    public void askExit() { ck.sendMessage("/exit");System.out.println("exit");}
+
+    public void addUsers(String str) {
+        //users.setText("Users:\n");
+        users.setText("");
+        users.append(str.replace("`",""));
+    }
     /**发起连接*/
     private void connect() {
         try {
             //如果该客服端已经连接，则释放当前CLientKernel，并抛出异常
-            if(ck!=null) ck.dropMe();
-            //创建新的CLientKernel，并初始化
-            ck = new ClientKernel(txtHost.getText(), Integer.parseInt(txtPort.getText()));
-            ck.setNick(txtNick.getText());
-            //初始化连接
-            if(ck.isConnected()) {
-                ck.addClient(this);
-                addMsg("<font color=\"#00ff00\">connected! Local Port:" + ck.getLocalPort() + "</font>");
-            } else {
-                addMsg("<font color=\"#ff0000\">connect failed!</font>");
+            if(ck!=null){
+                addMsg("You have logged in, please log out before new connect");
+                //ck.dropMe();
+            }else {
+                //创建新的CLientKernel，并初始化
+                ck = new ClientKernel(txtHost.getText(), Integer.parseInt(txtPort.getText()));
+                ck.setNick(txtNick.getText());
+                //初始化连接
+                if (ck.isConnected()) {
+                    ck.addClient(this);
+                    addMsg("<font color=\"#00ff00\">connected! Local Port:" + ck.getLocalPort() + "</font>");
+                } else {
+                    addMsg("<font color=\"#ff0000\">connect failed!</font>");
+                }
             }
         } catch(Exception e) { e.printStackTrace(); }
     }
@@ -142,6 +169,7 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         lastMsg = "" + toSend;
         msgWindow.setText("");
     }
+
 
     /**键盘摁下触发*/
     public void keyPressed(KeyEvent e) {
@@ -183,6 +211,13 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
         if(e.getSource()==buttonClear) {
             historyWindow.clear();
         }
+        if(e.getSource()==buttonUpdateUsers){
+            //users.append("hello\n");
+            askUsers();
+        }
+        if(e.getSource()==buttonExit){
+            askExit();
+        }
     }
 
     /**光标聚焦触发*/
@@ -208,9 +243,11 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
     /**历史消息面板*/
     class ClientHistory extends JEditorPane {
         public ClientHistory() {
-            super("text/html", "" + ChatClient.appName);
+            super("text/html;", "" + ChatClient.appName);
             setEditable(false);
             setAutoscrolls(true);
+//            setContentType("text/html;charset=UTF-8");
+//            System.out.println(System.getProperty("file.encoding"));
         }
         public void addText(String str) {
             String html = getText();
@@ -221,6 +258,7 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
             setText(newHtml);
             setSelectionStart(newHtml.length()-1);
             setSelectionEnd(newHtml.length());
+
          }
         public void clear() {
             setText("");

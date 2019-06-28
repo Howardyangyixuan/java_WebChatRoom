@@ -8,9 +8,11 @@ public class BroadcastCommandParser implements CommandParser {
     private final String VERIFY = "verify";
     private final String REGISTER = "register";
     private final String WHO_AM_I = "whoami";
-    private final String MSG = "msg";
+    private final String MSG = "@";
     private final String STATS = "stats";
         private final String tab = "&nbsp;&nbsp;&nbsp;";
+    private final String GETUSERS = "getUsers";
+
     private DataSource ds;
     private final int sek = 1000;
     private final int min = 60*sek;
@@ -44,6 +46,8 @@ public class BroadcastCommandParser implements CommandParser {
                     msg(cc, strTok.nextToken(), strTok);
                 else if(command.equalsIgnoreCase(STATS))
                     stats(cc);
+                else if (command.equalsIgnoreCase(GETUSERS))
+                    getUser(cc);
             }
         } catch(Exception e) {
             System.out.println("CommandParser: " + e.getMessage());
@@ -84,8 +88,8 @@ public class BroadcastCommandParser implements CommandParser {
         StringBuffer strBuff = new StringBuffer();
         while(strTok.hasMoreTokens())
             strBuff.append(strTok.nextToken() + " ");
-        
-        cc.sendTo(user, cc.nick + ":" + strBuff.toString());
+        cc.sendMessage("To user["+ user+"]:" +strBuff.toString());
+        cc.sendTo(user, "From user["+cc.nick + "]:" + strBuff.toString());
     }
     private  void users(ConnectedClient cc) {
         LinkedList users = (LinkedList)((cc.getConnectionKeeper().users()).clone());
@@ -93,6 +97,14 @@ public class BroadcastCommandParser implements CommandParser {
         while(users.size()>0)
             msg += "*" + ((ConnectedClient)(users.removeFirst())).getNick() + "<br>";
         cc.sendMessage(msg);
+    }
+
+    private  void getUser(ConnectedClient cc) {
+        LinkedList users = (LinkedList)((cc.getConnectionKeeper().users()).clone());
+        String msg = "Current Connected Users:\n";
+        while(users.size()>0)
+            msg +=  ((ConnectedClient)(users.removeFirst())).getNick() + "\n";
+        cc.sendMessage("`"+msg);
     }
     private  void setNick(ConnectedClient cc, String str) {
         //System.out.println("" + cc.nick + " is now known as " + str);
