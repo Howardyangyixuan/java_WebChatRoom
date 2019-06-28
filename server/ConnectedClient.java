@@ -1,4 +1,6 @@
 package server;
+import sun.applet.Main;
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -99,11 +101,13 @@ class ServerMsgSender extends Thread {
 
     public void run() {
         try {
-            DataOutputStream dataOut = new DataOutputStream(sock.getOutputStream());
+            //DataOutputStream dataOut = new DataOutputStream(sock.getOutputStream());
+            PrintWriter dataOut = new PrintWriter(new OutputStreamWriter(sock.getOutputStream(),"UTF-8"),true);
             while(running) {
                 while(msgList.size()>0) {
                     String toSend = (String)(msgList.removeFirst());
-                    dataOut.writeBytes("" + toSend + MainServer.MSGENDCHAR);
+                    //dataOut.writeBytes("" + toSend + MainServer.MSGENDCHAR);
+                    dataOut.println(toSend);
                     if(cc.printMsg) {
                         System.out.println("MsgSender.run: Sending: " + toSend);
                     }
@@ -144,18 +148,26 @@ class ServerMsgListener extends Thread {
     }
     public void run() {
         try {
-            BufferedInputStream buffIn = new BufferedInputStream(sock.getInputStream());
-            DataInputStream dataIn = new DataInputStream(buffIn);
+//            BufferedInputStream buffIn = new BufferedInputStream(sock.getInputStream());
+//            DataInputStream dataIn = new DataInputStream(buffIn);
+            BufferedReader dataIn = new BufferedReader(new InputStreamReader(sock.getInputStream(),"UTF-8"));
             while(running) {
                 int c;
                 boolean didRun = false;
                 boolean isCommand = false;
-                StringBuffer strBuff = new StringBuffer();
+                //StringBuffer strBuff = new StringBuffer();
                 sleep(10);
-                while( (c=dataIn.read()) != 0xff) {
-                    strBuff.append((char)c);
-                    if(!didRun) didRun=true;
-                    if(c==0xFD) isCommand = true;
+//                while( (c=dataIn.read()) != 0xff) {
+//                    strBuff.append((char)c);
+//                    if(!didRun) didRun=true;
+//                    if(c==0xFD) isCommand = true;
+//                }
+                String strBuff = dataIn.readLine();
+                if(strBuff.length()>0){
+                    if(!didRun) didRun = true;
+                    if(strBuff.charAt(0)==0xFD) isCommand = true;
+                    strBuff = strBuff.substring(0,strBuff.length()-1);
+
                 }
                 if(cc.verifyedCount>0 && !cc.verifyedBoolean && !isCommand) {
                     cc.verifyedCount--;

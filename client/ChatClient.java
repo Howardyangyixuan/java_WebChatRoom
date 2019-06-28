@@ -138,7 +138,7 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
     public void addUsers(String str) {
         //users.setText("Users:\n");
         users.setText("");
-        users.append(str.replace("`",""));
+        users.append(str.replace("`","").replace(" ","\n"));
     }
     /**发起连接*/
     private void connect() {

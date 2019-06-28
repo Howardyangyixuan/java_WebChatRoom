@@ -31,7 +31,7 @@ public class BroadcastCommandParser implements CommandParser {
                 String command = strTok.nextToken();
                 if(command.equalsIgnoreCase(NICK))
                     if(strTok.hasMoreTokens()) setNick(cc, strTok.nextToken());
-                    else cc.sendMessage("usage: /nick <newNick>");
+                    else cc.sendMessage("usage: /nick \"newNick\"");
                 else if (command.equalsIgnoreCase(USERS))
                     users(cc);
                 else if (command.equalsIgnoreCase(EXIT))
@@ -101,9 +101,9 @@ public class BroadcastCommandParser implements CommandParser {
 
     private  void getUser(ConnectedClient cc) {
         LinkedList users = (LinkedList)((cc.getConnectionKeeper().users()).clone());
-        String msg = "Current Connected Users:\n";
+        String msg = "Current_Connected_Users: ";
         while(users.size()>0)
-            msg +=  ((ConnectedClient)(users.removeFirst())).getNick() + "\n";
+            msg +=  ((ConnectedClient)(users.removeFirst())).getNick() + " ";
         cc.sendMessage("`"+msg);
     }
     private  void setNick(ConnectedClient cc, String str) {

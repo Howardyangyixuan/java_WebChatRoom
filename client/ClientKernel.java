@@ -191,25 +191,27 @@ class ClientMsgSender extends Thread {
     /**线程运行时的操作*/
     public void run() {
         try {
-            //获取输出流，DataOutputStream数据输出流允许应用程序以与机器无关方式将Java基本数据类型写到底层输出流
-            DataOutputStream dataOut = new DataOutputStream(s.getOutputStream());
+//            //获取输出流，DataOutputStream数据输出流允许应用程序以与机器无关方式将Java基本数据类型写到底层输出流
+//            DataOutputStream dataOut = new DataOutputStream(s.getOutputStream());
+            PrintWriter dataOut = new PrintWriter(new OutputStreamWriter(s.getOutputStream(),"UTF-8"),true);
 
             //按队列方式，将消息链表里每个内容输出到输出流，写完后写入终结符号，重复直至队空，在写入退出符号，并关闭输出流
             //无论如何，最后状态为结束
             while(running) {
                 while(msgList.size()>0) {
                     String msg = ((String)(msgList.removeFirst()));
-                    char[] data = msg.toCharArray();
-                    for(int i=0;i<data.length;i++) {
-                        dataOut.write((int)data[i]);
-                    }
-                    dataOut.write(ClientKernel.MSGENDCHAR);
+                    dataOut.println(msg+ClientKernel.MSGENDCHAR);
+//                    char[] data = msg.toCharArray();
+//                    for(int i=0;i<data.length;i++) {
+//                        dataOut.write((int)data[i]);
+//                    }
+//                    dataOut.write(ClientKernel.MSGENDCHAR);
                 }
                 sleep(10);
             }
-            dataOut.write(ClientKernel.EXIT);
-            dataOut.close();
-            stop();
+            //dataOut.write(ClientKernel.EXIT);
+            //dataOut.close();
+            //stop();
         } catch(Exception ioe) {
             ioe.printStackTrace();
         } finally {
@@ -252,28 +254,35 @@ class ClientMsgListener extends Thread{
     /**线程运行时的操作*/
     public void run() {
         try {
-                //获取输入流，BufferedInputStream 为输入流提供“缓冲功能”
-                BufferedInputStream buffIn = new BufferedInputStream(s.getInputStream());
-
-                //DataInputStream数据输入流允许应用程序以与机器无关方式从底层输入流中读取基本 Java 数据类型
-                DataInputStream dataIn = new DataInputStream(buffIn);
+//                //获取输入流，BufferedInputStream 为输入流提供“缓冲功能”
+//                BufferedInputStream buffIn = new BufferedInputStream(s.getInputStream());
+//
+//                //DataInputStream数据输入流允许应用程序以与机器无关方式从底层输入流中读取基本 Java 数据类型
+//                DataInputStream dataIn = new DataInputStream(buffIn);
+            BufferedReader dataIn = new BufferedReader(new InputStreamReader(s.getInputStream(),"UTF-8"));
 
                 //通过strBuff暂存读入数据，调用客户端内核程序，将消息写入每一个客户端，实现广播
                 //无论如何，最后状态为结束
                 while(running) {
-                    StringBuffer strBuff = new StringBuffer();
-                    int c;
-                    while( (c=dataIn.read()) != ClientKernel.MSGENDCHAR) {
-                        strBuff.append((char)c);
-                    }
-                    if(/*strBuff.length()>0 &&*/ strBuff.charAt(0)==ClientKernel.USER) {
-                        ck.storeUsers("" + strBuff.toString());
+                    //StringBuffer strBuff = new StringBuffer();
+                    String strBuff = dataIn.readLine();
+//                    if(strBuff.length()>0){
+//                        strBuff = strBuff.substring(0,strBuff.length()-1);
+//                    }
+//                    int c;
+//                    while( (c=dataIn.read()) != ClientKernel.MSGENDCHAR) {
+//                        strBuff.append((char)c);
+//                    }
+                    if(strBuff.length()>0 && strBuff.charAt(0)==ClientKernel.USER) {
+                        //ck.storeUsers("" + strBuff.toString());
+                        ck.storeUsers("" + strBuff);
                     }else {
-                        ck.storeMsg("" + strBuff.toString());
+                        //ck.storeMsg("" + strBuff.toString());
+                        ck.storeMsg("" + strBuff);
                     }
                 }
-                dataIn.close();
-                buffIn.close();
+                //dataIn.close();
+                //buffIn.close();
                 stop();
         } catch(IOException ioe) {
             ioe.printStackTrace();

@@ -14,24 +14,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/ClientKernel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="61" />
+            <state relative-caret-position="361">
+              <caret line="128" column="47" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3703#3704#0" expanded="true" />
                 <element signature="e#3737#3738#0" expanded="true" />
                 <element signature="e#3808#3809#0" expanded="true" />
                 <element signature="e#3859#3860#0" expanded="true" />
+                <element signature="e#6618#6619#0" expanded="true" />
+                <element signature="e#6649#6650#0" expanded="true" />
+                <element signature="e#6701#6702#0" expanded="true" />
+                <element signature="e#6733#6734#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/lang/StringBuffer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1729">
-              <caret line="201" column="18" selection-start-line="201" selection-start-column="18" selection-end-line="201" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -39,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="91" column="48" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
+            <state relative-caret-position="63">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1204">
-              <caret line="170" column="5" lean-forward="true" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
+            <state relative-caret-position="278">
+              <caret line="140" column="60" lean-forward="true" selection-start-line="140" selection-start-column="60" selection-end-line="140" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,28 +56,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/client">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>client</OriginalElement>
-              <nodes>
-                <node x="4.125" y="121.0">client.ClientMsgListener</node>
-                <node x="199.125" y="0.0">client.ChatClient</node>
-                <node x="42.25" y="394.0">client.ClientKernel</node>
-                <node x="57.25" y="778.0">client.ClientMsgSender</node>
-              </nodes>
-              <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="0.5263157894736842" x="233.5" y="446.0" />
-              <SelectedNodes>
-                <node>client.ClientMsgSender</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Methods</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
+        <entry file="file://$PROJECT_DIR$/server/ConnectionKeeper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#967#968#0" expanded="true" />
+                <element signature="e#1005#1006#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,52 +76,170 @@
               <ID>JAVA</ID>
               <OriginalElement>server</OriginalElement>
               <nodes>
-                <node x="405.2698908730159" y="324.0">server.ServerMsgListener</node>
-                <node x="228.10322420634913" y="152.0">server.BroadcastCommandParser</node>
-                <node x="139.38447420634915" y="460.0">server.ConnectedClient</node>
-                <node x="366.6032242063491" y="76.0">server.FileDataSource</node>
-                <node x="191.67808531746024" y="248.0">server.MainServer</node>
-                <node x="10.5" y="152.0">server.ConnectionKeeper</node>
-                <node x="111.8447519841269" y="324.0">server.ServerMsgSender</node>
-                <node x="285.0456944444444" y="0.0">server.DataSource</node>
-                <node x="49.20308531746025" y="76.0">server.CommandParser</node>
+                <node x="0.0" y="324.0">server.ServerMsgListener</node>
+                <node x="459.20000000000005" y="162.0">server.BroadcastCommandParser</node>
+                <node x="273.7833333333334" y="450.0">server.ConnectedClient</node>
+                <node x="294.20000000000005" y="86.0">server.FileDataSource</node>
+                <node x="390.70000000000005" y="238.0">server.MainServer</node>
+                <node x="263.39345238095245" y="324.0">server.ConnectionKeeper</node>
+                <node x="292.65833333333336" y="526.0">server.ServerMsgSender</node>
+                <node x="413.43616071428585" y="0.0">server.DataSource</node>
+                <node x="137.20000000000005" y="86.0">server.CommandParser</node>
               </nodes>
               <notes />
               <edges>
+                <edge source="server.ServerMsgListener" target="server.ConnectedClient">
+                  <point x="61.875" y="13.0" />
+                  <point x="144.375" y="400.0" />
+                  <point x="317.82500000000005" y="400.0" />
+                  <point x="-31.45833333333337" y="-13.0" />
+                </edge>
+                <edge source="server.MainServer" target="server.FileDataSource">
+                  <point x="-23.200000000000017" y="-13.0" />
+                  <point x="425.5" y="208.0" />
+                  <point x="366.20000000000005" y="208.0" />
+                  <point x="0.0" y="13.0" />
+                </edge>
                 <edge source="server.BroadcastCommandParser" target="server.CommandParser">
                   <point x="-66.66666666666669" y="-13.0" />
-                  <point x="261.43655753968244" y="122.0" />
-                  <point x="172.50308531746026" y="122.0" />
+                  <point x="492.53333333333336" y="132.0" />
+                  <point x="260.50000000000006" y="132.0" />
                   <point x="54.80000000000001" y="13.0" />
+                </edge>
+                <edge source="server.ConnectedClient" target="server.ConnectionKeeper">
+                  <point x="6.291666666666657" y="-13.0" />
+                  <point x="355.57500000000005" y="370.0" />
+                  <point x="322.64345238095245" y="370.0" />
+                  <point x="-19.75" y="13.0" />
+                </edge>
+                <edge source="server.CommandParser" target="server.DataSource">
+                  <point x="0.0" y="-13.0" />
+                  <point x="205.70000000000005" y="46.0" />
+                  <point x="425.03616071428587" y="46.0" />
+                  <point x="-46.39999999999998" y="13.0" />
+                </edge>
+                <edge source="server.BroadcastCommandParser" target="server.DataSource">
+                  <point x="66.66666666666669" y="-13.0" />
+                  <point x="625.8666666666668" y="142.0" />
+                  <point x="595.9260416666667" y="142.0" />
+                  <point x="595.9260416666667" y="56.0" />
+                  <point x="517.8361607142858" y="56.0" />
+                  <point x="46.40000000000002" y="13.0" />
+                </edge>
+                <edge source="server.ServerMsgSender" target="server.MainServer">
+                  <point x="60.400000000000034" y="-13.0" />
+                  <point x="428.5583333333334" y="501.0" />
+                  <point x="603.7200892857144" y="501.0" />
+                  <point x="603.7200892857144" y="304.0" />
+                  <point x="497.03333333333336" y="304.0" />
+                  <point x="48.333333333333314" y="13.0" />
+                </edge>
+                <edge source="server.CommandParser" target="server.ConnectedClient">
+                  <point x="-54.80000000000001" y="13.0" />
+                  <point x="150.90000000000003" y="142.0" />
+                  <point x="175.50000000000006" y="142.0" />
+                  <point x="175.50000000000006" y="390.0" />
+                  <point x="330.40833333333336" y="390.0" />
+                  <point x="-18.87500000000003" y="-13.0" />
+                </edge>
+                <edge source="server.BroadcastCommandParser" target="server.MainServer">
+                  <point x="0.0" y="13.0" />
+                  <point x="559.2" y="218.0" />
+                  <point x="495.1" y="218.0" />
+                  <point x="46.39999999999998" y="-13.0" />
+                </edge>
+                <edge source="server.ConnectedClient" target="server.ServerMsgListener">
+                  <point x="-56.62500000000006" y="-13.0" />
+                  <point x="292.6583333333333" y="420.0" />
+                  <point x="61.875" y="420.0" />
+                  <point x="-20.625" y="13.0" />
+                </edge>
+                <edge source="server.ConnectedClient" target="server.MainServer">
+                  <point x="56.625" y="-13.0" />
+                  <point x="405.9083333333334" y="420.0" />
+                  <point x="489.28333333333336" y="420.0" />
+                  <point x="489.28333333333336" y="294.0" />
+                  <point x="477.70000000000005" y="294.0" />
+                  <point x="29.0" y="13.0" />
+                </edge>
+                <edge source="server.MainServer" target="server.ConnectionKeeper">
+                  <point x="-29.0" y="13.0" />
+                  <point x="419.70000000000005" y="294.0" />
+                  <point x="373.9934523809525" y="294.0" />
+                  <point x="31.60000000000001" y="-13.0" />
+                </edge>
+                <edge source="server.MainServer" target="server.BroadcastCommandParser">
+                  <point x="23.19999999999999" y="-13.0" />
+                  <point x="471.90000000000003" y="208.0" />
+                  <point x="492.53333333333336" y="208.0" />
+                  <point x="-66.66666666666669" y="13.0" />
+                </edge>
+                <edge source="server.BroadcastCommandParser" target="server.ConnectedClient">
+                  <point x="66.66666666666669" y="13.0" />
+                  <point x="625.8666666666668" y="218.0" />
+                  <point x="589.824255952381" y="218.0" />
+                  <point x="589.824255952381" y="430.0" />
+                  <point x="418.49166666666673" y="430.0" />
+                  <point x="69.20833333333334" y="-13.0" />
+                </edge>
+                <edge source="server.ConnectedClient" target="server.ServerMsgSender">
+                  <point x="18.875" y="13.0" />
+                  <point x="2.8421709430404007E-14" y="-13.0" />
+                </edge>
+                <edge source="server.MainServer" target="server.DataSource">
+                  <point x="0.0" y="-13.0" />
+                  <point x="448.70000000000005" y="66.0" />
+                  <point x="471.43616071428585" y="66.0" />
+                  <point x="0.0" y="13.0" />
+                </edge>
+                <edge source="server.ConnectionKeeper" target="server.MainServer">
+                  <point x="1.4210854715202004E-14" y="-13.0" />
+                  <point x="342.39345238095245" y="284.0" />
+                  <point x="400.36666666666673" y="284.0" />
+                  <point x="-48.333333333333314" y="13.0" />
+                </edge>
+                <edge source="server.ConnectionKeeper" target="server.ConnectedClient">
+                  <point x="59.25" y="13.0" />
+                  <point x="401.64345238095245" y="400.0" />
+                  <point x="380.74166666666673" y="400.0" />
+                  <point x="31.458333333333343" y="-13.0" />
+                </edge>
+                <edge source="server.ServerMsgSender" target="server.ConnectedClient">
+                  <point x="-30.19999999999996" y="-13.0" />
+                  <point x="337.95833333333337" y="501.0" />
+                  <point x="330.4083333333334" y="501.0" />
+                  <point x="-18.875" y="13.0" />
+                </edge>
+                <edge source="server.ConnectionKeeper" target="server.CommandParser">
+                  <point x="-63.19999999999999" y="-13.0" />
+                  <point x="279.19345238095246" y="304.0" />
+                  <point x="189.14092261904773" y="304.0" />
+                  <point x="189.14092261904773" y="132.0" />
+                  <point x="178.30000000000004" y="132.0" />
+                  <point x="-27.400000000000006" y="13.0" />
                 </edge>
                 <edge source="server.FileDataSource" target="server.DataSource">
                   <point x="0.0" y="-13.0" />
-                  <point x="438.6032242063491" y="56.0" />
-                  <point x="366.24569444444444" y="56.0" />
-                  <point x="23.200000000000045" y="13.0" />
+                  <point x="366.20000000000005" y="56.0" />
+                  <point x="448.23616071428586" y="56.0" />
+                  <point x="-23.19999999999999" y="13.0" />
+                </edge>
+                <edge source="server.MainServer" target="server.CommandParser">
+                  <point x="-46.400000000000034" y="-13.0" />
+                  <point x="402.3" y="218.0" />
+                  <point x="280.3909226190477" y="218.0" />
+                  <point x="280.3909226190477" y="142.0" />
+                  <point x="233.10000000000005" y="142.0" />
+                  <point x="27.400000000000006" y="13.0" />
                 </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="0.8261617900172117" x="290.5" y="243.0" />
+              <settings layout="Hierarchic Group" zoom="1.0" x="-165.0" y="266.0" />
               <SelectedNodes>
-                <node>server.ServerMsgListener</node>
+                <node>server.CommandParser</node>
               </SelectedNodes>
               <Categories />
               <SCOPE>All</SCOPE>
               <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/ConnectionKeeper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#967#968#0" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -153,11 +253,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/BroadcastCommandParser.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/FileDataSource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="82" column="62" lean-forward="true" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
+            <state relative-caret-position="385">
+              <caret line="316" column="42" lean-forward="true" selection-start-line="316" selection-start-column="42" selection-end-line="316" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,13 +268,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/ConnectedClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="44" column="22" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="22" />
+            <state relative-caret-position="292">
+              <caret line="170" column="17" lean-forward="true" selection-start-line="165" selection-start-column="16" selection-end-line="170" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#980#981#0" expanded="true" />
+                <element signature="e#1009#1010#0" expanded="true" />
+                <element signature="e#1039#1040#0" expanded="true" />
+                <element signature="e#1070#1071#0" expanded="true" />
+                <element signature="e#1112#1113#0" expanded="true" />
+                <element signature="e#1151#1152#0" expanded="true" />
+                <element signature="e#1201#1202#0" expanded="true" />
+                <element signature="e#1243#1244#0" expanded="true" />
+                <element signature="e#1781#1782#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
+                <element signature="e#1853#1854#0" expanded="true" />
+                <element signature="e#1905#1906#0" expanded="true" />
                 <element signature="e#3756#3757#0" expanded="true" />
                 <element signature="e#3787#3788#0" expanded="true" />
+                <element signature="e#4151#4152#0" expanded="true" />
+                <element signature="e#4182#4183#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/BroadcastCommandParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="112" column="26" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/lang/String.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="657" column="18" selection-start-line="657" selection-start-column="18" selection-end-line="657" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -180,27 +315,17 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addText</find>
-      <find>hasStoped</find>
-      <find>ClientMsgSender</find>
-      <find>dropMe</find>
-      <find>isConnected</find>
-      <find>COMMAND</find>
       <find>getText</find>
       <find>PORT_USED_ERROR</find>
       <find>addMsg</find>
-      <find>getUser</find>
       <find>GETUSERS</find>
       <find>sendMessage</find>
       <find>addMessage</find>
       <find>addLast</find>
-      <find>askUsers</find>
       <find>runCommand</find>
       <find>equalsIgnoreCase</find>
       <find>/getUsers</find>
       <find>storeUsers</find>
-      <find>MSGENDCHAR</find>
-      <find>addUsers</find>
       <find>add</find>
       <find>nick</find>
       <find>ck</find>
@@ -210,6 +335,16 @@
       <find>sendTo</find>
       <find>storeMsg</find>
       <find>exit</find>
+      <find>registerNick</find>
+      <find>verifyNick</find>
+      <find>tmpNick</find>
+      <find>dataIn</find>
+      <find>setNick</find>
+      <find>askUsers</find>
+      <find>getUser</find>
+      <find>`</find>
+      <find>MSGENDCHAR</find>
+      <find>addUsers</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -218,11 +353,11 @@
         <option value="$PROJECT_DIR$/server/FileDataSource.java" />
         <option value="$PROJECT_DIR$/server/CommandParser.java" />
         <option value="$PROJECT_DIR$/server/DataSource.java" />
-        <option value="$PROJECT_DIR$/server/ConnectedClient.java" />
         <option value="$PROJECT_DIR$/server/ConnectionKeeper.java" />
         <option value="$PROJECT_DIR$/server/MainServer.java" />
-        <option value="$PROJECT_DIR$/client/ChatClient.java" />
+        <option value="$PROJECT_DIR$/server/ConnectedClient.java" />
         <option value="$PROJECT_DIR$/client/ClientKernel.java" />
+        <option value="$PROJECT_DIR$/client/ChatClient.java" />
         <option value="$PROJECT_DIR$/server/BroadcastCommandParser.java" />
       </list>
     </option>
@@ -230,7 +365,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="972" />
+    <option name="height" value="967" />
   </component>
   <component name="ProjectView">
     <navigator currentView="PackagesPane" proportions="" version="1">
@@ -361,15 +496,16 @@
       <workItem from="1561477718848" duration="58802000" />
       <workItem from="1561639765905" duration="1288000" />
       <workItem from="1561641389948" duration="8887000" />
-      <workItem from="1561691814749" duration="2164000" />
+      <workItem from="1561691814749" duration="20761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74584000" />
+    <option name="totallyTimeSpent" value="93181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="972" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="967" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26800978" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -377,7 +513,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295063" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3284091" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33028573" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -388,9 +524,10 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="调试" order="12" weight="0.3295063" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3284091" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.328" />
       <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.32914287" />
       <window_info anchor="bottom" id="Analyze Dataflow to" order="15" weight="0.32914287" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24969475" />
@@ -404,7 +541,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295063" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3284091" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33028573" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -415,45 +552,27 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="调试" order="12" weight="0.3295063" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3284091" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.328" />
       <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.32914287" />
       <window_info anchor="bottom" id="Analyze Dataflow to" order="15" weight="0.32914287" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24969475" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32967034" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.24969475" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout-to-restore>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/java_WebChatRoom$ChatClient.ic" NAME="ChatClient Coverage Results" MODIFIED="1561720634921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>client.*</FILTER>
+    </SUITE>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/lang/AbstractStringBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="657" column="18" selection-start-line="657" selection-start-column="18" selection-end-line="657" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/DataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/FileDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -468,25 +587,6 @@
           <notes />
           <edges />
           <settings layout="Hierarchic Group" zoom="1.0" x="65.0" y="13.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/server.BroadcastCommandParser">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>server.BroadcastCommandParser</OriginalElement>
-          <nodes>
-            <node x="" y="">server.BroadcastCommandParser</node>
-            <node x="" y="">server.CommandParser</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="100.0" y="51.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -553,47 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/server">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>server</OriginalElement>
-          <nodes>
-            <node x="405.2698908730159" y="324.0">server.ServerMsgListener</node>
-            <node x="228.10322420634913" y="152.0">server.BroadcastCommandParser</node>
-            <node x="139.38447420634915" y="460.0">server.ConnectedClient</node>
-            <node x="366.6032242063491" y="76.0">server.FileDataSource</node>
-            <node x="191.67808531746024" y="248.0">server.MainServer</node>
-            <node x="10.5" y="152.0">server.ConnectionKeeper</node>
-            <node x="111.8447519841269" y="324.0">server.ServerMsgSender</node>
-            <node x="285.0456944444444" y="0.0">server.DataSource</node>
-            <node x="49.20308531746025" y="76.0">server.CommandParser</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="server.BroadcastCommandParser" target="server.CommandParser">
-              <point x="-66.66666666666669" y="-13.0" />
-              <point x="261.43655753968244" y="122.0" />
-              <point x="172.50308531746026" y="122.0" />
-              <point x="54.80000000000001" y="13.0" />
-            </edge>
-            <edge source="server.FileDataSource" target="server.DataSource">
-              <point x="0.0" y="-13.0" />
-              <point x="438.6032242063491" y="56.0" />
-              <point x="366.24569444444444" y="56.0" />
-              <point x="23.200000000000045" y="13.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.8261617900172117" x="290.5" y="243.0" />
-          <SelectedNodes>
-            <node>server.ServerMsgListener</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/lang/StringBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1729">
@@ -601,37 +660,220 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1204">
-          <caret line="170" column="5" lean-forward="true" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="uml://JAVA/server.DataSource">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>server.DataSource</OriginalElement>
+          <nodes>
+            <node x="" y="">server.DataSource</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="58.0" y="13.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/ClientKernel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3703#3704#0" expanded="true" />
-            <element signature="e#3737#3738#0" expanded="true" />
-            <element signature="e#3808#3809#0" expanded="true" />
-            <element signature="e#3859#3860#0" expanded="true" />
-          </folding>
+    <entry file="uml://JAVA/server.BroadcastCommandParser">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>server.BroadcastCommandParser</OriginalElement>
+          <nodes>
+            <node x="" y="">server.BroadcastCommandParser</node>
+            <node x="" y="">server.CommandParser</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="100.0" y="51.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/MainServer.java">
+    <entry file="file://$PROJECT_DIR$/server/DataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="91" column="48" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/server">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>server</OriginalElement>
+          <nodes>
+            <node x="0.0" y="324.0">server.ServerMsgListener</node>
+            <node x="459.20000000000005" y="162.0">server.BroadcastCommandParser</node>
+            <node x="273.7833333333334" y="450.0">server.ConnectedClient</node>
+            <node x="294.20000000000005" y="86.0">server.FileDataSource</node>
+            <node x="390.70000000000005" y="238.0">server.MainServer</node>
+            <node x="263.39345238095245" y="324.0">server.ConnectionKeeper</node>
+            <node x="292.65833333333336" y="526.0">server.ServerMsgSender</node>
+            <node x="413.43616071428585" y="0.0">server.DataSource</node>
+            <node x="137.20000000000005" y="86.0">server.CommandParser</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="server.ServerMsgListener" target="server.ConnectedClient">
+              <point x="61.875" y="13.0" />
+              <point x="144.375" y="400.0" />
+              <point x="317.82500000000005" y="400.0" />
+              <point x="-31.45833333333337" y="-13.0" />
+            </edge>
+            <edge source="server.MainServer" target="server.FileDataSource">
+              <point x="-23.200000000000017" y="-13.0" />
+              <point x="425.5" y="208.0" />
+              <point x="366.20000000000005" y="208.0" />
+              <point x="0.0" y="13.0" />
+            </edge>
+            <edge source="server.BroadcastCommandParser" target="server.CommandParser">
+              <point x="-66.66666666666669" y="-13.0" />
+              <point x="492.53333333333336" y="132.0" />
+              <point x="260.50000000000006" y="132.0" />
+              <point x="54.80000000000001" y="13.0" />
+            </edge>
+            <edge source="server.ConnectedClient" target="server.ConnectionKeeper">
+              <point x="6.291666666666657" y="-13.0" />
+              <point x="355.57500000000005" y="370.0" />
+              <point x="322.64345238095245" y="370.0" />
+              <point x="-19.75" y="13.0" />
+            </edge>
+            <edge source="server.CommandParser" target="server.DataSource">
+              <point x="0.0" y="-13.0" />
+              <point x="205.70000000000005" y="46.0" />
+              <point x="425.03616071428587" y="46.0" />
+              <point x="-46.39999999999998" y="13.0" />
+            </edge>
+            <edge source="server.BroadcastCommandParser" target="server.DataSource">
+              <point x="66.66666666666669" y="-13.0" />
+              <point x="625.8666666666668" y="142.0" />
+              <point x="595.9260416666667" y="142.0" />
+              <point x="595.9260416666667" y="56.0" />
+              <point x="517.8361607142858" y="56.0" />
+              <point x="46.40000000000002" y="13.0" />
+            </edge>
+            <edge source="server.ServerMsgSender" target="server.MainServer">
+              <point x="60.400000000000034" y="-13.0" />
+              <point x="428.5583333333334" y="501.0" />
+              <point x="603.7200892857144" y="501.0" />
+              <point x="603.7200892857144" y="304.0" />
+              <point x="497.03333333333336" y="304.0" />
+              <point x="48.333333333333314" y="13.0" />
+            </edge>
+            <edge source="server.CommandParser" target="server.ConnectedClient">
+              <point x="-54.80000000000001" y="13.0" />
+              <point x="150.90000000000003" y="142.0" />
+              <point x="175.50000000000006" y="142.0" />
+              <point x="175.50000000000006" y="390.0" />
+              <point x="330.40833333333336" y="390.0" />
+              <point x="-18.87500000000003" y="-13.0" />
+            </edge>
+            <edge source="server.BroadcastCommandParser" target="server.MainServer">
+              <point x="0.0" y="13.0" />
+              <point x="559.2" y="218.0" />
+              <point x="495.1" y="218.0" />
+              <point x="46.39999999999998" y="-13.0" />
+            </edge>
+            <edge source="server.ConnectedClient" target="server.ServerMsgListener">
+              <point x="-56.62500000000006" y="-13.0" />
+              <point x="292.6583333333333" y="420.0" />
+              <point x="61.875" y="420.0" />
+              <point x="-20.625" y="13.0" />
+            </edge>
+            <edge source="server.ConnectedClient" target="server.MainServer">
+              <point x="56.625" y="-13.0" />
+              <point x="405.9083333333334" y="420.0" />
+              <point x="489.28333333333336" y="420.0" />
+              <point x="489.28333333333336" y="294.0" />
+              <point x="477.70000000000005" y="294.0" />
+              <point x="29.0" y="13.0" />
+            </edge>
+            <edge source="server.MainServer" target="server.ConnectionKeeper">
+              <point x="-29.0" y="13.0" />
+              <point x="419.70000000000005" y="294.0" />
+              <point x="373.9934523809525" y="294.0" />
+              <point x="31.60000000000001" y="-13.0" />
+            </edge>
+            <edge source="server.MainServer" target="server.BroadcastCommandParser">
+              <point x="23.19999999999999" y="-13.0" />
+              <point x="471.90000000000003" y="208.0" />
+              <point x="492.53333333333336" y="208.0" />
+              <point x="-66.66666666666669" y="13.0" />
+            </edge>
+            <edge source="server.BroadcastCommandParser" target="server.ConnectedClient">
+              <point x="66.66666666666669" y="13.0" />
+              <point x="625.8666666666668" y="218.0" />
+              <point x="589.824255952381" y="218.0" />
+              <point x="589.824255952381" y="430.0" />
+              <point x="418.49166666666673" y="430.0" />
+              <point x="69.20833333333334" y="-13.0" />
+            </edge>
+            <edge source="server.ConnectedClient" target="server.ServerMsgSender">
+              <point x="18.875" y="13.0" />
+              <point x="2.8421709430404007E-14" y="-13.0" />
+            </edge>
+            <edge source="server.MainServer" target="server.DataSource">
+              <point x="0.0" y="-13.0" />
+              <point x="448.70000000000005" y="66.0" />
+              <point x="471.43616071428585" y="66.0" />
+              <point x="0.0" y="13.0" />
+            </edge>
+            <edge source="server.ConnectionKeeper" target="server.MainServer">
+              <point x="1.4210854715202004E-14" y="-13.0" />
+              <point x="342.39345238095245" y="284.0" />
+              <point x="400.36666666666673" y="284.0" />
+              <point x="-48.333333333333314" y="13.0" />
+            </edge>
+            <edge source="server.ConnectionKeeper" target="server.ConnectedClient">
+              <point x="59.25" y="13.0" />
+              <point x="401.64345238095245" y="400.0" />
+              <point x="380.74166666666673" y="400.0" />
+              <point x="31.458333333333343" y="-13.0" />
+            </edge>
+            <edge source="server.ServerMsgSender" target="server.ConnectedClient">
+              <point x="-30.19999999999996" y="-13.0" />
+              <point x="337.95833333333337" y="501.0" />
+              <point x="330.4083333333334" y="501.0" />
+              <point x="-18.875" y="13.0" />
+            </edge>
+            <edge source="server.ConnectionKeeper" target="server.CommandParser">
+              <point x="-63.19999999999999" y="-13.0" />
+              <point x="279.19345238095246" y="304.0" />
+              <point x="189.14092261904773" y="304.0" />
+              <point x="189.14092261904773" y="132.0" />
+              <point x="178.30000000000004" y="132.0" />
+              <point x="-27.400000000000006" y="13.0" />
+            </edge>
+            <edge source="server.FileDataSource" target="server.DataSource">
+              <point x="0.0" y="-13.0" />
+              <point x="366.20000000000005" y="56.0" />
+              <point x="448.23616071428586" y="56.0" />
+              <point x="-23.19999999999999" y="13.0" />
+            </edge>
+            <edge source="server.MainServer" target="server.CommandParser">
+              <point x="-46.400000000000034" y="-13.0" />
+              <point x="402.3" y="218.0" />
+              <point x="280.3909226190477" y="218.0" />
+              <point x="280.3909226190477" y="142.0" />
+              <point x="233.10000000000005" y="142.0" />
+              <point x="27.400000000000006" y="13.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-165.0" y="266.0" />
+          <SelectedNodes>
+            <node>server.CommandParser</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
@@ -642,22 +884,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/ConnectedClient.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="22" />
+        <state relative-caret-position="187">
+          <caret line="3331" selection-start-line="3331" selection-end-line="3331" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/FileDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="316" column="42" lean-forward="true" selection-start-line="316" selection-start-column="42" selection-end-line="316" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="657" column="18" selection-start-line="657" selection-start-column="18" selection-end-line="657" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ConnectedClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="170" column="17" lean-forward="true" selection-start-line="165" selection-start-column="16" selection-end-line="170" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1112#1113#0" expanded="true" />
+            <element signature="e#1151#1152#0" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1905#1906#0" expanded="true" />
             <element signature="e#3756#3757#0" expanded="true" />
             <element signature="e#3787#3788#0" expanded="true" />
+            <element signature="e#4151#4152#0" expanded="true" />
+            <element signature="e#4182#4183#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/ConnectionKeeper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        <state relative-caret-position="270">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#967#968#0" expanded="true" />
@@ -666,10 +946,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/ClientKernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="128" column="47" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3703#3704#0" expanded="true" />
+            <element signature="e#3737#3738#0" expanded="true" />
+            <element signature="e#3808#3809#0" expanded="true" />
+            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="e#6618#6619#0" expanded="true" />
+            <element signature="e#6649#6650#0" expanded="true" />
+            <element signature="e#6701#6702#0" expanded="true" />
+            <element signature="e#6733#6734#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/MainServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/ChatClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="140" column="60" lean-forward="true" selection-start-line="140" selection-start-column="60" selection-end-line="140" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/BroadcastCommandParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="82" column="62" lean-forward="true" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
+        <state relative-caret-position="735">
+          <caret line="112" column="26" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
         </state>
       </provider>
     </entry>
