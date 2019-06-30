@@ -261,7 +261,7 @@ public class ChatClient extends JFrame implements KeyListener, ActionListener, F
 
          }
         public void clear() {
-            setText("");
+            setText("Chat Tool\n");
         }
     }
 }

@@ -116,6 +116,8 @@ public class BroadcastCommandParser implements CommandParser {
             if(isNickFree(cc, str)) {
                 cc.nick = str;
                 cc.verifyedBoolean = true;
+                cc.sendMessage("Server: Your are now known as " + str);
+
             } else 
                 cc.sendMessage("nick " + str + " was allready taken");
             
